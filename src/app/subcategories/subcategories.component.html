@@ -1,0 +1,66 @@
+<div class="container">
+  <h2 class="text-center my-5">All Subcategories</h2>
+  <hr class="my-3" />
+
+  <!-- Create Subcategory and Search Section -->
+  <div class="d-flex justify-content-between mb-4">
+    <a class="btn gradient-custom-4 " routerLink="create">Create Subcategory</a>
+    <input (change)="searchData(searchInput.value)" #searchInput class="form-control me-2 w-25" type="search"
+      placeholder="Search" aria-label="Search">
+  </div>
+
+  <hr class="my-3" />
+
+  <div class="row">
+    @for(subcategory of subcategories; track subcategory._id){
+    <div class="col-md-4 mb-4">
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center mt-4">
+            <div>
+              <h4 class="text-center">{{ subcategory?.name }}</h4>
+              <h6 class="text-center">Category: {{ subcategory?.category?.name }}</h6>
+            </div>
+          </div>
+
+          <!-- Update/Delete Buttons -->
+          <div class="text-center mt-4">
+            <a [routerLink]="['/subcategories',subcategory._id,'update']" class="btn gradient-custom-4  btn-sm rounded-3 mx-3">Update</a>
+            <button (click)="deleteSubcategory(subcategory._id)" class="btn btn-danger btn-sm rounded-3"><i class="fas fa-trash-alt"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    @empty { <h1>No Subcategories Found</h1> }
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class="container m-auto mt-5 w-50">
+  <ul class="pagination justify-content-center">
+    @if(pagination?.prev){
+    <li (click)="changePage(pagination.prev)" class="page-item">
+      <button class="page-link">Previous</button>
+    </li>
+    }
+    @if(pagination?.currentPage !== 1){
+    <li (click)="changePage(1)" class="page-item">
+      <button class="page-link">1</button>
+    </li>
+    }
+    <li class="page-item active">
+      <button class="page-link">{{ pagination?.currentPage }}</button>
+    </li>
+    @if(pagination?.currentPage !== pagination?.totalPages){
+    <li (click)="changePage(pagination.totalPages!)" class="page-item">
+      <button class="page-link">{{ pagination.totalPages }}</button>
+    </li>
+    }
+    @if(pagination?.next){
+    <li (click)="changePage(pagination.next)" class="page-item">
+      <button class="page-link">Next</button>
+    </li>
+    }
+  </ul>
+</div>

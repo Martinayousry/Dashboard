@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <h1 class="text-center my-5 animated-title">Add Coupon</h1>
+  <div class="w-50 m-auto shadow-lg p-4 rounded-3 bg-light gradient-custom-4">
+    <form [formGroup]="couponForm" (ngSubmit)="createCoupon(couponForm)">
+      <div class="p-3">
+        <!-- Coupon Name Input -->
+        <input formControlName="name" class="form-control shadow-sm" type="text" placeholder="Coupon Name">
+        @if(couponForm.get('name')?.errors !== null && couponForm.get('name')?.touched){
+        <div class="p-0 mt-3">
+          @if(couponForm.get('name')?.errors?.['required']){<p class="text-danger">Coupon Name is Required</p>}
+        </div>
+        }
+      </div>
+
+      <div class="p-3">
+        <!-- Discount Input -->
+        <input formControlName="discount" class="form-control shadow-sm" type="number" placeholder="Discount">
+        @if(couponForm.get('discount')?.errors !== null && couponForm.get('discount')?.touched){
+        <div class="p-0 mt-3">
+          @if(couponForm.get('discount')?.errors?.['required']){<p class="text-danger">Coupon Discount is Required</p>}
+        </div>
+        }
+      </div>
+
+      <div class="p-3">
+        <!-- Expire Time Input -->
+        <input formControlName="expireTime" class="form-control shadow-sm" type="date" placeholder="Expire Time">
+        @if(couponForm.get('expireTime')?.errors !== null && couponForm.get('expireTime')?.touched){
+        <div class="p-0 mt-3">
+          @if(couponForm.get('expireTime')?.errors?.['required']){<p class="text-danger">Expire Time is Required</p>}
+        </div>
+        }
+        @if(couponError !== ''){
+        <div class="text-danger mt-3">
+          <p>{{couponError}}</p>
+        </div>
+        }
+      </div>
+
+      <div class="mt-3 text-center">
+        <!-- Create and Cancel Buttons -->
+        <button [disabled]="couponForm.invalid" class="btn btn-gradient-custom mx-3">Create</button>
+        <a routerLink="/coupons" class="btn btn-danger">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+<br><br><br>

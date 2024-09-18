@@ -1,0 +1,59 @@
+@if(loading){<app-spinner ></app-spinner>}
+@else {
+<section class="product-container container p-5">
+  <div class="img-card">
+      <img [src]="selectedImage||imgDomain+product?.cover" alt="{{product.name}}" id="featured-image">
+      <div class="small-Card ">
+        @for(image of product?.images; track image){
+          <div class="col-md-3">
+            <img class="w-100 hover-zoom" [src]="imgDomain+image" [alt]="product.name" (click)="selectImage(image)">
+          </div>
+          }
+
+      </div>
+  </div>
+  <!-- Right side -->
+  <div class="product-info">
+      <h3>{{product?.subcategory?.name}}</h3>
+      <div class="product-title text-bold my-3">{{product?.name}}</div>
+      <div class="price-area my-4">
+        <p class="new-price text-bold mb-1">{{product?.price|currency}}</p>
+      </div>
+
+      <div class="product-details my-4">
+        <h2 class="details-title text-color mb-1">Product Details</h2>
+        <p class="description">{{product?.description}}</p>
+      </div>
+
+
+
+      <div>
+          <p>Delivery:</p>
+          <p>Free standard shipping on orders over $35 before tax, plus free returns.</p>
+          <div class="delivery">
+              <p>TYPE</p> <p>HOW LONG</p> <p>HOW MUCH</p>
+          </div>
+          <hr>
+          <div class="delivery">
+              <p>Standard delivery</p>
+              <p>1-4 business days</p>
+              <p>$4.50</p>
+          </div>
+          <hr>
+          <div class="delivery">
+              <p>Express delivery</p>
+              <p>1 business day</p>
+              <p>$10.00</p>
+          </div>
+
+      </div>
+
+
+<div name="reviews">
+  <hr class="m-5 w-100">
+</div>
+  </div>
+</section>
+}
+
+

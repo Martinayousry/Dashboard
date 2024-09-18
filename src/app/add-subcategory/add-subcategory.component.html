@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h1 class="text-center my-5 animated-title">Add Subcategory</h1>
+  <div class="w-50 m-auto shadow p-4 rounded-3 d-flex justify-content-center align-items-center bg-light gradient-custom-4">
+    <form [formGroup]="subcategoryForm" (ngSubmit)="createSubcategory(subcategoryForm)" class="w-100">
+      <!-- Subcategory Name Input -->
+      <div class="my-3">
+        <input formControlName="name" class="form-control shadow-sm" type="text" placeholder="Subcategory name">
+        @if(subcategoryForm.get('name')?.errors!==null && subcategoryForm.get('name')?.touched){
+        <div class="text-danger mt-3">
+          @if(subcategoryForm.get('name')?.errors?.['required']){
+            <p>Subcategory name is required</p>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Category Select -->
+      <div class="my-3">
+        <select formControlName="category" class="form-select shadow-sm" aria-label="Select category">
+          <option disabled selected>Choose category</option>
+          @for(category of categories; track category._id){
+          <option [value]="category._id">{{category.name}}</option>
+          }
+        </select>
+        @if(subcategoryError!==''){
+        <div class="text-danger mt-3">
+          <p>{{subcategoryError}}</p>
+        </div>
+        }
+      </div>
+
+      <!-- Buttons -->
+      <div class="my-3 text-center">
+        <button class="btn btn-gradient-custom mx-3">Create</button>
+        <a routerLink="/subcategories" class="btn btn-danger">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+<br><br>

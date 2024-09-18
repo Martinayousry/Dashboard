@@ -1,0 +1,63 @@
+<div class="container mt-5">
+  <h1 class="text-center my-5 animated-title">Add Product</h1>
+  <div class="w-50 m-auto shadow p-4 rounded-3 bg-light gradient-custom-4">
+    <div class="p-3">
+      <!-- Product Name Input -->
+      <input class="form-control shadow-sm" type="text" (change)="this.getName=name.value" #name placeholder="Product name">
+    </div>
+
+    <!-- Description Textarea -->
+    <div class="form-floating p-3">
+      <textarea class="form-control shadow-sm" (change)="this.getDescription=description.value" #description
+        placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+      <label for="floatingTextarea">Description</label>
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="p-3">
+      <select (change)="loadSubcategories(category.value)" #category class="form-select shadow-sm" aria-label="Default select example">
+        <option disabled selected>Choose category</option>
+        @for(category of categories; track category._id){
+        <option [value]="category._id">{{category.name}}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Subcategory Dropdown -->
+    <div class="p-3">
+      <select class="form-select shadow-sm" (change)="this.getSubcategory=subcategory.value" #subcategory aria-label="Default select example">
+        <option disabled selected>Choose subcategory</option>
+        @for(subcategory of subcategories; track subcategory._id){
+        <option [value]="subcategory._id">{{subcategory.name}}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Price and Quantity Inputs -->
+    <div class="p-3 d-flex justify-content-around">
+      <input class="form-control shadow-sm w-25" type="number" (change)="this.getPrice=price.value" #price placeholder="Product price">
+      <input class="form-control shadow-sm w-25" type="number" (change)="this.getQuantity=quantity.value" #quantity placeholder="Product quantity">
+    </div>
+
+    <!-- File Inputs for Cover and Images -->
+    <div class="p-3 d-flex justify-content-around">
+      <div class="w-25">
+        <label class="mb-2" for="cover">Product Cover</label>
+        <input class="form-control shadow-sm" (change)="setCover($event)" type="file" accept="image/*">
+      </div>
+      <div class="w-25">
+        <label class="mb-2" for="images">Product Images</label>
+        <input class="form-control shadow-sm" (change)="setImages($event)" type="file" accept="image/*" multiple>
+      </div>
+    </div>
+
+    <!-- Create and Cancel Buttons -->
+    <div class="my-3 text-center">
+      <button (click)="createProduct()" class="btn btn-gradient-custom mx-3">Create</button>
+      <a routerLink="/products" class="btn btn-danger">Cancel</a>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>

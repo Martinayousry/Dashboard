@@ -1,0 +1,32 @@
+.table-wishlist {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-wishlist th, .table-wishlist td {
+  padding: 12px;
+}
+
+.table-wishlist thead th {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+.table-wishlist tbody tr {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table-wishlist tbody td {
+  font-size: 14px;
+}
+
+.table-wishlist img {
+  border-radius: 5px;
+}
+
+.table-wishlist .btn {
+  font-size: 14px;
+}
+.gradient-custom-4 {
+  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+}

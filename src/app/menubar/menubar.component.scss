@@ -1,0 +1,23 @@
+.hover-effect {
+  transition: background-color 0.3s, color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hover-effect:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #00ffbb; /* Example hover color */
+}
+
+.navbar-nav .nav-item {
+  margin-bottom: 1rem;
+}
+
+.navbar-nav .nav-link i {
+  font-size: 1.25rem;
+}
+
+.navbar-nav .nav-link.active {
+  color: #00ffbb; /* Active link color */
+  font-weight: bold;
+}

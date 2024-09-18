@@ -1,0 +1,58 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+  <div class="collapse show vh-100 bg-dark" id="navbarToggleExternalContent">
+    <div class="p-4 h-100 d-flex flex-column justify-content-between">
+      <div>
+        <h5 class="text-white h4 mb-4">Menu Bar</h5>
+        <ul class="navbar-nav text-white">
+          <!-- Home -->
+          <li class="nav-item mb-3">
+            <a class="nav-link d-flex align-items-center text-white hover-effect" routerLink="/home" routerLinkActive="active">
+              <i class="fas fa-home me-2"></i> Home
+            </a>
+          </li>
+
+          <!-- Categories -->
+          <li class="nav-item mb-3">
+            <a class="nav-link d-flex align-items-center text-white hover-effect" routerLink="/categories" routerLinkActive="active">
+              <i class="fas fa-list-alt me-2"></i> Categories
+            </a>
+          </li>
+
+          <!-- Subcategories -->
+          <li class="nav-item mb-3">
+            <a class="nav-link d-flex align-items-center text-white hover-effect" routerLink="/subcategories" routerLinkActive="active">
+              <i class="fas fa-th-list me-2"></i> Subcategories
+            </a>
+          </li>
+
+          <!-- Products -->
+          <li class="nav-item mb-3">
+            <a class="nav-link d-flex align-items-center text-white hover-effect" routerLink="/products" routerLinkActive="active">
+              <i class="fas fa-box-open me-2"></i> Products
+            </a>
+          </li>
+
+          <!-- Coupons -->
+          <li class="nav-item mb-3">
+            <a class="nav-link d-flex align-items-center text-white hover-effect" routerLink="/coupons" routerLinkActive="active">
+              <i class="fas fa-tags me-2"></i> Coupons
+            </a>
+          </li>
+
+          <!-- Orders -->
+          <li class="nav-item mb-3">
+            <a class="nav-link d-flex align-items-center text-white hover-effect" routerLink="/orders" routerLinkActive="active">
+              <i class="fas fa-shopping-cart me-2"></i> Orders
+            </a>
+          </li>
+          <li class="nav-item mb-3">
+            <button (click)="logout()" class="nav-link text-white d-flex align-items-center hover-effect">
+              <i class="fas fa-sign-out-alt me-2"></i> Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
